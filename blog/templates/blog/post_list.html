@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -11,11 +12,10 @@
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+  <link rel="stylesheet" href="{% static 'css/blog.css' %}">
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <style media="all">
-    body{margin-top: 70px}
-  </style>
+
 </head>
 <body>
   <!-- Fixed navbar -->
@@ -51,16 +51,30 @@
       </div><!--/.nav-collapse -->
     </div>
   </nav>
+
+  <header class="page-header">
+      <div class="container">
+        <h1>Django GilcierWeb</h1>
+      </div>
+  </header>
+
   <section>
 
-    <div class="container">
+    <div class="content container">
 
-      <h1>Django GilcierWeb</h1>
-      {% for post in posts %}
-        <p>published: {{ post.published_date }}</p>
-        <h1><a href="">{{ post.title }}</a></h1>
-        <p>{{ post.text|linebreaksbr }}</p>
-      {% endfor %}
+      <div class="row">
+        <div class="col-md-8">
+          {% for post in posts %}
+          <div class="post">
+            <div class="date">
+              {{ post.published_date }}
+            </div>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
     </div>
   </section>
   <footer class="container">
