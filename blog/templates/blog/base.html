@@ -62,9 +62,11 @@
 
     <div class="content container">
 
+      <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+
       {% block content %}
       {% endblock %}
-      
+
     </div>
 
   </section>
