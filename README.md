@@ -17,4 +17,5 @@ python manage.py makemigrations blog
 python manage.py migrate blog
 ```
 http://gilcierweb.com.br
+
 http://tutorial.djangogirls.org/pt/
